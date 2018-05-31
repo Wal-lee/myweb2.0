@@ -1,4 +1,4 @@
-from flask import Flask,render_template
+from flask import Flask,render_template,flash
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from config import config 
