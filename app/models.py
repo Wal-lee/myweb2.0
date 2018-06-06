@@ -1,6 +1,7 @@
 from . import db
 from . import login_manager
 from werkzeug import generate_password_hash,check_password_hash
+from flask_login import UserMixin
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -13,7 +14,7 @@ class Role(db.Model):
 	users=db.relationship('User',backref='role')
 	def __repr__(self):
 		return '<Role %r>'% self.name
-class User(db.Model):
+class User(UserMixin,db.Model):
 	__tablename__='users'
 	id=db.Column(db.Integer,primary_key=True)
 	username=db.Column(db.String(64),unique=True,index=True)
