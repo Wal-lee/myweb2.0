@@ -47,7 +47,14 @@
     </div>
 	<div class="container">
     	<div class="page-header">
-        	<h1>Hello {%if name%}{{name}}{%else%}asshole{%endif%}</h1>
+        	<h1>Hello 
+               
+                {%if current_user.is_authenticated%}
+                    {{current_user.username}}
+                {%else%}
+                    asshole
+                {%endif%}
+            </h1>
             {%if not known%}
             <p>Pleased to meet you</p>
             {% else %}
@@ -59,7 +66,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                {{wtf.quick_form(form)}}
+
             </div>
         </div>
     </div>
